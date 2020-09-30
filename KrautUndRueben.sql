@@ -23,11 +23,19 @@ CREATE TABLE IF NOT EXISTS `allergien` (
   `AllergieID` int(11) NOT NULL AUTO_INCREMENT,
   `AllergieName` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`AllergieID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 
--- Exportiere Daten aus Tabelle krautundrueben.allergien: ~0 rows (ungefähr)
+-- Exportiere Daten aus Tabelle krautundrueben.allergien: ~7 rows (ungefähr)
 DELETE FROM `allergien`;
 /*!40000 ALTER TABLE `allergien` DISABLE KEYS */;
+INSERT INTO `allergien` (`AllergieID`, `AllergieName`) VALUES
+	(1, 'Erdnuss'),
+	(2, 'Kuhmilch'),
+	(3, 'Baumnuesse'),
+	(4, 'Sojabohne'),
+	(5, 'Huehnerei'),
+	(6, 'Fisch und Meeresfruechte'),
+	(7, 'Weizen');
 /*!40000 ALTER TABLE `allergien` ENABLE KEYS */;
 
 -- Exportiere Struktur von Tabelle krautundrueben.bestellung
@@ -110,11 +118,19 @@ CREATE TABLE IF NOT EXISTS `ernaehrungskategorie` (
   `ErnKatID` int(11) NOT NULL AUTO_INCREMENT,
   `ErnKatName` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`ErnKatID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4;
 
--- Exportiere Daten aus Tabelle krautundrueben.ernaehrungskategorie: ~0 rows (ungefähr)
+-- Exportiere Daten aus Tabelle krautundrueben.ernaehrungskategorie: ~7 rows (ungefähr)
 DELETE FROM `ernaehrungskategorie`;
 /*!40000 ALTER TABLE `ernaehrungskategorie` DISABLE KEYS */;
+INSERT INTO `ernaehrungskategorie` (`ErnKatID`, `ErnKatName`) VALUES
+	(1, 'Vegan'),
+	(2, 'Vegetarisch'),
+	(3, 'Frutarisch'),
+	(4, 'ohne Gentechnik'),
+	(5, 'Laktosefrei'),
+	(6, 'Glutenfrei'),
+	(7, 'Low Carb');
 /*!40000 ALTER TABLE `ernaehrungskategorie` ENABLE KEYS */;
 
 -- Exportiere Struktur von Tabelle krautundrueben.kunde
@@ -250,7 +266,7 @@ CREATE TABLE IF NOT EXISTS `zutat` (
   CONSTRAINT `zutat_ibfk_1` FOREIGN KEY (`LIEFERANT`) REFERENCES `lieferant` (`LIEFERANTENNR`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Exportiere Daten aus Tabelle krautundrueben.zutat: ~22 rows (ungefähr)
+-- Exportiere Daten aus Tabelle krautundrueben.zutat: ~23 rows (ungefähr)
 DELETE FROM `zutat`;
 /*!40000 ALTER TABLE `zutat` DISABLE KEYS */;
 INSERT INTO `zutat` (`ZUTATENNR`, `BEZEICHNUNG`, `EINHEIT`, `NETTOPREIS`, `BESTAND`, `LIEFERANT`, `KALORIEN`, `KOHLENHYDRATE`, `PROTEIN`) VALUES
@@ -273,6 +289,7 @@ INSERT INTO `zutat` (`ZUTATENNR`, `BEZEICHNUNG`, `EINHEIT`, `NETTOPREIS`, `BESTA
 	(4001, 'Ei', 'Stück', 0.40, 300, 102, 137, 1.50, 11.90),
 	(5001, 'Wiener Würstchen', 'Paar', 1.80, 40, 101, 331, 1.20, 9.90),
 	(6300, 'Kichererbsen', 'Dose', 1.00, 400, 103, 150, 21.20, 9.00),
+	(6400, 'Nudelplatten', 'Stueck', 2.15, 11, 101, 359, 71.70, 12.00),
 	(6408, 'Couscous', 'Packung', 1.90, 15, 102, 351, 67.00, 12.00),
 	(7043, 'Gemüsebrühe', 'Würfel', 0.20, 4000, 101, 1, 0.50, 0.50),
 	(9001, 'Tofu-Würstchen', 'Stück', 1.80, 20, 103, 252, 7.00, 17.00);
