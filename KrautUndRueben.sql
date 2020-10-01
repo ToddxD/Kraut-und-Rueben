@@ -178,7 +178,7 @@ CREATE TABLE IF NOT EXISTS `lieferant` (
   PRIMARY KEY (`LIEFERANTENNR`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Exportiere Daten aus Tabelle krautundrueben.lieferant: ~4 rows (ungefähr)
+-- Exportiere Daten aus Tabelle krautundrueben.lieferant: ~6 rows (ungefähr)
 DELETE FROM `lieferant`;
 /*!40000 ALTER TABLE `lieferant` DISABLE KEYS */;
 INSERT INTO `lieferant` (`LIEFERANTENNR`, `LIEFERANTENNAME`, `STRASSE`, `HAUSNR`, `PLZ`, `ORT`, `TELEFON`, `EMAIL`) VALUES
@@ -188,6 +188,7 @@ INSERT INTO `lieferant` (`LIEFERANTENNR`, `LIEFERANTENNAME`, `STRASSE`, `HAUSNR`
 	(104, 'RuptureFarms', 'Mudosalley', '13', '50367', 'Mudos', '193872441', 'molluck@rupturefarms.com'),
 	(105, 'GüntersGurkenGmbH', 'Hinterdeich', '215', '31045', 'Otterndorf', '16497452', 'guenter@gurkengmbh.de'),
 	(404, 'Not Found', 'N.A.', '404', '00000', 'N.A.', '404-0000', 'notFound@no-reply.com');
+/*!40000 ALTER TABLE `lieferant` ENABLE KEYS */;
 
 -- Exportiere Struktur von Tabelle krautundrueben.rezept
 DROP TABLE IF EXISTS `rezept`;
@@ -195,11 +196,17 @@ CREATE TABLE IF NOT EXISTS `rezept` (
   `RezeptID` int(11) NOT NULL AUTO_INCREMENT,
   `RezeptName` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`RezeptID`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
--- Exportiere Daten aus Tabelle krautundrueben.rezept: ~0 rows (ungefähr)
+-- Exportiere Daten aus Tabelle krautundrueben.rezept: ~5 rows (ungefähr)
 DELETE FROM `rezept`;
 /*!40000 ALTER TABLE `rezept` DISABLE KEYS */;
+INSERT INTO `rezept` (`RezeptID`, `RezeptName`) VALUES
+	(1, 'Lachslasagne'),
+	(2, 'ThaiCurry'),
+	(3, 'Kartoffelsuppe'),
+	(4, 'Milchreis mit Apfelmus'),
+	(5, 'Sommerlicher Couscous-Salat');
 /*!40000 ALTER TABLE `rezept` ENABLE KEYS */;
 
 -- Exportiere Struktur von Tabelle krautundrueben.rezeptallergien
@@ -246,9 +253,52 @@ CREATE TABLE IF NOT EXISTS `rezeptzutat` (
   CONSTRAINT `rezeptzutat_ibfk_2` FOREIGN KEY (`ZUTATENNR`) REFERENCES `zutat` (`ZUTATENNR`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Exportiere Daten aus Tabelle krautundrueben.rezeptzutat: ~0 rows (ungefähr)
+-- Exportiere Daten aus Tabelle krautundrueben.rezeptzutat: ~12 rows (ungefähr)
 DELETE FROM `rezeptzutat`;
 /*!40000 ALTER TABLE `rezeptzutat` DISABLE KEYS */;
+INSERT INTO `rezeptzutat` (`RezeptID`, `ZUTATENNR`, `Menge`) VALUES
+	(1, 1013, 1),
+	(1, 1019, 1),
+	(1, 2002, 1),
+	(1, 3001, 1),
+	(1, 3003, 1),
+	(1, 3004, 1),
+	(1, 3005, 1),
+	(1, 3006, 1),
+	(1, 6000, 1),
+	(1, 6400, 1),
+	(1, 7043, 2),
+	(1, 8001, 2),
+	(2, 1009, 1),
+	(2, 1014, 1),
+	(2, 1015, 2),
+	(2, 1016, 1),
+	(2, 1101, 1),
+	(2, 3011, 1),
+	(2, 7025, 1),
+	(2, 9002, 3),
+	(3, 1002, 1),
+	(3, 1005, 1),
+	(3, 1006, 5),
+	(3, 1008, 1),
+	(3, 1012, 1),
+	(3, 1017, 1),
+	(3, 1018, 1),
+	(3, 1019, 1),
+	(3, 7043, 5),
+	(3, 9001, 2),
+	(4, 1014, 1),
+	(4, 2011, 1),
+	(4, 3001, 1),
+	(4, 3003, 1),
+	(4, 6200, 1),
+	(5, 1001, 1),
+	(5, 1003, 3),
+	(5, 1017, 1),
+	(5, 1020, 1),
+	(5, 1102, 1),
+	(5, 6408, 1),
+	(5, 7043, 2);
 /*!40000 ALTER TABLE `rezeptzutat` ENABLE KEYS */;
 
 -- Exportiere Struktur von Tabelle krautundrueben.zutat
@@ -268,7 +318,7 @@ CREATE TABLE IF NOT EXISTS `zutat` (
   CONSTRAINT `zutat_ibfk_1` FOREIGN KEY (`LIEFERANT`) REFERENCES `lieferant` (`LIEFERANTENNR`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Exportiere Daten aus Tabelle krautundrueben.zutat: ~37 rows (ungefähr)
+-- Exportiere Daten aus Tabelle krautundrueben.zutat: ~44 rows (ungefähr)
 DELETE FROM `zutat`;
 /*!40000 ALTER TABLE `zutat` DISABLE KEYS */;
 INSERT INTO `zutat` (`ZUTATENNR`, `BEZEICHNUNG`, `EINHEIT`, `NETTOPREIS`, `BESTAND`, `LIEFERANT`, `KALORIEN`, `KOHLENHYDRATE`, `PROTEIN`) VALUES
