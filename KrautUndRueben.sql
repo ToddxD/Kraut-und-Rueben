@@ -178,7 +178,7 @@ CREATE TABLE IF NOT EXISTS `lieferant` (
   PRIMARY KEY (`LIEFERANTENNR`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Exportiere Daten aus Tabelle krautundrueben.lieferant: ~3 rows (ungefähr)
+-- Exportiere Daten aus Tabelle krautundrueben.lieferant: ~4 rows (ungefähr)
 DELETE FROM `lieferant`;
 /*!40000 ALTER TABLE `lieferant` DISABLE KEYS */;
 INSERT INTO `lieferant` (`LIEFERANTENNR`, `LIEFERANTENNAME`, `STRASSE`, `HAUSNR`, `PLZ`, `ORT`, `TELEFON`, `EMAIL`) VALUES
@@ -267,7 +267,7 @@ CREATE TABLE IF NOT EXISTS `zutat` (
   CONSTRAINT `zutat_ibfk_1` FOREIGN KEY (`LIEFERANT`) REFERENCES `lieferant` (`LIEFERANTENNR`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Exportiere Daten aus Tabelle krautundrueben.zutat: ~23 rows (ungefähr)
+-- Exportiere Daten aus Tabelle krautundrueben.zutat: ~37 rows (ungefähr)
 DELETE FROM `zutat`;
 /*!40000 ALTER TABLE `zutat` DISABLE KEYS */;
 INSERT INTO `zutat` (`ZUTATENNR`, `BEZEICHNUNG`, `EINHEIT`, `NETTOPREIS`, `BESTAND`, `LIEFERANT`, `KALORIEN`, `KOHLENHYDRATE`, `PROTEIN`) VALUES
@@ -287,9 +287,15 @@ INSERT INTO `zutat` (`ZUTATENNR`, `BEZEICHNUNG`, `EINHEIT`, `NETTOPREIS`, `BESTA
 	(1014, 'Reis', 'Packung', 1.93, 84, 101, 351, 75.00, 8.80),
 	(1015, 'Gemüse (gemischt)', 'Packung', 1.79, 34, 101, 90, 6.40, 2.50),
 	(1016, 'Bambussprossen', 'Glass', 1.27, 14, 101, 22, 0.90, 2.60),
+	(1017, 'Petersilie', 'Bund', 2.67, 165, 404, 0, 6.00, 3.00),
+	(1018, 'Majoran', 'Bund', 3.50, 100, 404, 0, 61.00, 13.00),
+	(1019, 'Muskat', 'Dose', 6.95, 30, 404, 227, 45.00, 5.70),
+	(1020, 'Paprika', 'Stück', 1.16, 45, 404, 43, 6.40, 1.30),
 	(1101, 'Currypaste', 'Glass', 2.79, 1, 404, 460, 2.10, 3.80),
+	(1102, 'Sonnenblumenöl', 'Flasche', 0.96, 76, 404, 884, 0.00, 0.00),
 	(2001, 'Apfel', 'Stück', 1.20, 750, 102, 54, 14.40, 0.30),
 	(2002, 'Zitrone', ' Stück', 0.97, 23, 102, 56, 8.00, 1.00),
+	(2011, 'Apfelmuss', 'Glass', 0.97, 20, 404, 71, 17.00, 0.10),
 	(3001, 'Vollmilch. 3.5%', 'Liter', 1.50, 50, 103, 65, 4.70, 3.40),
 	(3002, 'Mozzarella', 'Packung', 3.50, 20, 103, 241, 1.00, 18.10),
 	(3003, 'Butter', 'Stück', 3.00, 50, 103, 741, 0.60, 0.70),
@@ -300,12 +306,13 @@ INSERT INTO `zutat` (`ZUTATENNR`, `BEZEICHNUNG`, `EINHEIT`, `NETTOPREIS`, `BESTA
 	(4001, 'Ei', 'Stück', 0.40, 300, 102, 137, 1.50, 11.90),
 	(5001, 'Wiener Würstchen', 'Paar', 1.80, 40, 101, 331, 1.20, 9.90),
 	(6000, 'Mehl', 'Packung', 1.09, 27, 103, 337, 71.00, 10.00),
+	(6200, 'Vanillezucker', 'Päckchen', 0.96, 55, 404, 394, 98.50, 0.00),
 	(6300, 'Kichererbsen', 'Dose', 1.00, 400, 103, 150, 21.20, 9.00),
 	(6400, 'Nudelplatten', 'Stück', 2.15, 11, 101, 359, 71.70, 12.00),
 	(6408, 'Couscous', 'Packung', 1.90, 15, 102, 351, 67.00, 12.00),
 	(7025, 'Sojasoße', 'Flasche', 2.39, 29, 404, 229, 50.00, 6.30),
 	(7043, 'Gemüsebrühe', 'Würfel', 0.20, 4000, 101, 1, 0.50, 0.50),
-	(8000, 'Lachs (TK)', 'Packung', 3.15, 3, 101, 131, 0.00, 18.40),
+	(8001, 'Lachs (TK)', 'Packung', 3.15, 3, 101, 131, 0.00, 18.40),
 	(9001, 'Tofu-Würstchen', 'Stück', 1.80, 20, 103, 252, 7.00, 17.00),
 	(9002, 'Hähnchenbrustfilet', '200g', 2.40, 15, 102, 111, 0.00, 25.00);
 /*!40000 ALTER TABLE `zutat` ENABLE KEYS */;
