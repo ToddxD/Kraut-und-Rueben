@@ -220,9 +220,14 @@ CREATE TABLE IF NOT EXISTS `rezeptallergien` (
   CONSTRAINT `rezeptallergien_ibfk_2` FOREIGN KEY (`AllergieID`) REFERENCES `allergien` (`AllergieID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Exportiere Daten aus Tabelle krautundrueben.rezeptallergien: ~0 rows (ungefähr)
+-- Exportiere Daten aus Tabelle krautundrueben.rezeptallergien: ~4 rows (ungefähr)
 DELETE FROM `rezeptallergien`;
 /*!40000 ALTER TABLE `rezeptallergien` DISABLE KEYS */;
+INSERT INTO `rezeptallergien` (`RezeptID`, `AllergieID`) VALUES
+	(1, 2),
+	(1, 7),
+	(3, 4),
+	(4, 2);
 /*!40000 ALTER TABLE `rezeptallergien` ENABLE KEYS */;
 
 -- Exportiere Struktur von Tabelle krautundrueben.rezepternaehrungskategorie
@@ -236,9 +241,25 @@ CREATE TABLE IF NOT EXISTS `rezepternaehrungskategorie` (
   CONSTRAINT `rezepternaehrungskategorie_ibfk_2` FOREIGN KEY (`ErnKatID`) REFERENCES `ernaehrungskategorie` (`ErnKatID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Exportiere Daten aus Tabelle krautundrueben.rezepternaehrungskategorie: ~0 rows (ungefähr)
+-- Exportiere Daten aus Tabelle krautundrueben.rezepternaehrungskategorie: ~15 rows (ungefähr)
 DELETE FROM `rezepternaehrungskategorie`;
 /*!40000 ALTER TABLE `rezepternaehrungskategorie` DISABLE KEYS */;
+INSERT INTO `rezepternaehrungskategorie` (`RezeptID`, `ErnKatID`) VALUES
+	(1, 4),
+	(2, 4),
+	(2, 5),
+	(2, 6),
+	(3, 1),
+	(3, 2),
+	(3, 4),
+	(3, 5),
+	(3, 6),
+	(4, 4),
+	(5, 1),
+	(5, 2),
+	(5, 4),
+	(5, 5),
+	(5, 7);
 /*!40000 ALTER TABLE `rezepternaehrungskategorie` ENABLE KEYS */;
 
 -- Exportiere Struktur von Tabelle krautundrueben.rezeptzutat
@@ -253,7 +274,7 @@ CREATE TABLE IF NOT EXISTS `rezeptzutat` (
   CONSTRAINT `rezeptzutat_ibfk_2` FOREIGN KEY (`ZUTATENNR`) REFERENCES `zutat` (`ZUTATENNR`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Exportiere Daten aus Tabelle krautundrueben.rezeptzutat: ~12 rows (ungefähr)
+-- Exportiere Daten aus Tabelle krautundrueben.rezeptzutat: ~42 rows (ungefähr)
 DELETE FROM `rezeptzutat`;
 /*!40000 ALTER TABLE `rezeptzutat` DISABLE KEYS */;
 INSERT INTO `rezeptzutat` (`RezeptID`, `ZUTATENNR`, `Menge`) VALUES
