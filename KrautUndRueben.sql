@@ -184,7 +184,8 @@ DELETE FROM `lieferant`;
 INSERT INTO `lieferant` (`LIEFERANTENNR`, `LIEFERANTENNAME`, `STRASSE`, `HAUSNR`, `PLZ`, `ORT`, `TELEFON`, `EMAIL`) VALUES
 	(101, 'Bio-Hof Müller', 'Dorfstraße', '74', '24354', 'Weseby', '04354-9080', 'mueller@biohof.de'),
 	(102, 'Obst-Hof Altes Land', 'Westerjork 74', '76', '21635', 'Jork', '04162-4523', 'info@biohof-altesland.de'),
-	(103, 'Molkerei Henning', 'Molkereiwegkundekunde', '13', '19217', 'Dechow', '038873-8976', 'info@molkerei-henning.de');
+	(103, 'Molkerei Henning', 'Molkereiwegkundekunde', '13', '19217', 'Dechow', '038873-8976', 'info@molkerei-henning.de'),
+	(404, 'Not Found', 'N.A.', '404', '00000', 'N.A.', '404-0000', 'notFound@no-reply.com');
 /*!40000 ALTER TABLE `lieferant` ENABLE KEYS */;
 
 -- Exportiere Struktur von Tabelle krautundrueben.rezept
@@ -282,17 +283,31 @@ INSERT INTO `zutat` (`ZUTATENNR`, `BEZEICHNUNG`, `EINHEIT`, `NETTOPREIS`, `BESTA
 	(1010, 'Basilikum', 'Bund', 1.30, 10, 101, 41, 5.10, 3.10),
 	(1011, 'Süßkartoffel', 'Stück', 2.00, 200, 101, 86, 20.00, 1.60),
 	(1012, 'Schnittlauch', 'Bund', 0.90, 10, 101, 28, 1.00, 3.00),
+	(1013, 'Spinat', 'Packung', 1.45, 24, 101, 17, 1.00, 3.00),
+	(1014, 'Reis', 'Packung', 1.93, 84, 101, 351, 75.00, 8.80),
+	(1015, 'Gemüse (gemischt)', 'Packung', 1.79, 34, 101, 90, 6.40, 2.50),
+	(1016, 'Bambussprossen', 'Glass', 1.27, 14, 101, 22, 0.90, 2.60),
+	(1101, 'Currypaste', 'Glass', 2.79, 1, 404, 460, 2.10, 3.80),
 	(2001, 'Apfel', 'Stück', 1.20, 750, 102, 54, 14.40, 0.30),
+	(2002, 'Zitrone', ' Stück', 0.97, 23, 102, 56, 8.00, 1.00),
 	(3001, 'Vollmilch. 3.5%', 'Liter', 1.50, 50, 103, 65, 4.70, 3.40),
 	(3002, 'Mozzarella', 'Packung', 3.50, 20, 103, 241, 1.00, 18.10),
 	(3003, 'Butter', 'Stück', 3.00, 50, 103, 741, 0.60, 0.70),
+	(3004, 'Käse (geriebenen)', 'Packung', 1.09, 50, 103, 364, 0.00, 22.00),
+	(3005, 'Sahne', '250g', 1.29, 19, 103, 163, 4.00, 2.90),
+	(3006, 'Pamesan', 'Packung', 1.79, 73, 103, 402, 0.00, 32.00),
+	(3011, 'Kokosmilch', 'Liter', 2.69, 6, 404, 27, 1.90, 0.20),
 	(4001, 'Ei', 'Stück', 0.40, 300, 102, 137, 1.50, 11.90),
 	(5001, 'Wiener Würstchen', 'Paar', 1.80, 40, 101, 331, 1.20, 9.90),
+	(6000, 'Mehl', 'Packung', 1.09, 27, 103, 337, 71.00, 10.00),
 	(6300, 'Kichererbsen', 'Dose', 1.00, 400, 103, 150, 21.20, 9.00),
-	(6400, 'Nudelplatten', 'Stueck', 2.15, 11, 101, 359, 71.70, 12.00),
+	(6400, 'Nudelplatten', 'Stück', 2.15, 11, 101, 359, 71.70, 12.00),
 	(6408, 'Couscous', 'Packung', 1.90, 15, 102, 351, 67.00, 12.00),
+	(7025, 'Sojasoße', 'Flasche', 2.39, 29, 404, 229, 50.00, 6.30),
 	(7043, 'Gemüsebrühe', 'Würfel', 0.20, 4000, 101, 1, 0.50, 0.50),
-	(9001, 'Tofu-Würstchen', 'Stück', 1.80, 20, 103, 252, 7.00, 17.00);
+	(8000, 'Lachs (TK)', 'Packung', 3.15, 3, 101, 131, 0.00, 18.40),
+	(9001, 'Tofu-Würstchen', 'Stück', 1.80, 20, 103, 252, 7.00, 17.00),
+	(9002, 'Hähnchenbrustfilet', '200g', 2.40, 15, 102, 111, 0.00, 25.00);
 /*!40000 ALTER TABLE `zutat` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
