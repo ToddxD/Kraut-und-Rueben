@@ -178,13 +178,15 @@ CREATE TABLE IF NOT EXISTS `lieferant` (
   PRIMARY KEY (`LIEFERANTENNR`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Exportiere Daten aus Tabelle krautundrueben.lieferant: ~3 rows (ungefähr)
+-- Exportiere Daten aus Tabelle krautundrueben.lieferant: ~5 rows (ungefähr)
 DELETE FROM `lieferant`;
 /*!40000 ALTER TABLE `lieferant` DISABLE KEYS */;
 INSERT INTO `lieferant` (`LIEFERANTENNR`, `LIEFERANTENNAME`, `STRASSE`, `HAUSNR`, `PLZ`, `ORT`, `TELEFON`, `EMAIL`) VALUES
 	(101, 'Bio-Hof Müller', 'Dorfstraße', '74', '24354', 'Weseby', '04354-9080', 'mueller@biohof.de'),
 	(102, 'Obst-Hof Altes Land', 'Westerjork 74', '76', '21635', 'Jork', '04162-4523', 'info@biohof-altesland.de'),
-	(103, 'Molkerei Henning', 'Molkereiwegkundekunde', '13', '19217', 'Dechow', '038873-8976', 'info@molkerei-henning.de');
+	(103, 'Molkerei Henning', 'Molkereiwegkundekunde', '13', '19217', 'Dechow', '038873-8976', 'info@molkerei-henning.de'),
+	(104, 'RuptureFarms', 'Mudosalley', '13', '50367', 'Mudos', '193872441', 'molluck@rupturefarms.com'),
+	(105, 'GüntersGurkenGmbH', 'Hinterdeich', '215', '31045', 'Otterndorf', '16497452', 'guenter@gurkengmbh.de');
 /*!40000 ALTER TABLE `lieferant` ENABLE KEYS */;
 
 -- Exportiere Struktur von Tabelle krautundrueben.rezept
