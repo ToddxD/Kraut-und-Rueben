@@ -1,5 +1,17 @@
 /* Auswahl von Rezepten entsprechend vorgegebener Ernährungskategorien */
 
+
+SELECT * 
+FROM rezepternaehrungskategorie
+
+LEFT JOIN rezept ON rezepternaehrungskategorie.RezeptID=rezept.RezeptID
+
+LEFT JOIN ernaehrungskategorie ON rezepternaehrungskategorie.ErnKatID=ernaehrungskategorie.ErnKatID
+
+WHERE ernaehrungskategorie.ErnKatName = 'Vegan';
+
+
+
 /* Auswahl bzw. Ausschluss von Rezepten auf Basis von Beschränkungen */
 
 /* Abfrage: Auswahl eines Rezeptes nach Rezeptname */
