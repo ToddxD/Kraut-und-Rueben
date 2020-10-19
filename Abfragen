@@ -51,6 +51,11 @@ WHERE kunde.KUNDENNR = "2001";
 
 /* Abfrage: Auswahl aller Zutaten, die bisher keinem Rezept zugeordnet sind */
 
+SELECT   zutat.BEZEICHNUNG FROM zutat
+LEFT OUTER JOIN  rezeptzutat
+ON zutat.ZUTATENNR = rezeptzutat.ZUTATENNR
+WHERE RezeptId IS NULL;
+
 /* Abfrage: Auswahl aller Rezepte, die eine bestimmte Kalorienmenge nicht überschreiten */
 
 /* Abfrage: Auswahl aller Rezepte, die weniger als fünf Zutaten enthalten */
