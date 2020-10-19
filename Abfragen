@@ -16,11 +16,38 @@ WHERE ernaehrungskategorie.ErnKatName = 'Vegan';
 
 /* Abfrage: Auswahl eines Rezeptes nach Rezeptname */
 
-/* Abfrage: Auswahl aller Rezepte einer bestimmten Ernährungskategorie */
+SELECT rezept.RezeptName, rezeptzutat.Menge, zutat.EINHEIT, zutat.BEZEICHNUNG
+  FROM rezept 
+LEFT JOIN rezeptzutat
+  ON rezept.RezeptID = rezeptzutat.RezeptID
+LEFT JOIN zutat
+  ON rezeptzutat.ZUTATENNR = zutat.ZUTATENNR
+WHERE rezept.RezeptName = "Lachslasagne";
+
 
 /* Abfrage: Auswahl aller Rezepte, die eine gewisse Zutat enthalten */
 
+SELECT rezept.RezeptName
+  FROM zutat 
+LEFT JOIN rezeptzutat
+  ON rezeptzutat.ZUTATENNR = zutat.ZUTATENNR
+LEFT JOIN rezept
+  ON rezeptzutat.RezeptID = rezept.RezeptID
+WHERE zutat.BEZEICHNUNG = "Spinat";
+
+
 /* Abfrage: Berechnung der durchschnittlichen Nährwerte aller Bestellungen eines Kunden */
+
+SELECT AVG(zutat.KALORIEN) AS durchschnittlicheKalorien
+  FROM kunde
+LEFT JOIN bestellung
+  ON bestellung.KUNDENNR = kunde.KUNDENNR
+LEFT JOIN bestellungzutat
+  ON bestellungzutat.BESTELLNR = bestellung.BESTELLNR
+LEFT JOIN zutat
+  ON zutat.ZUTATENNR = bestellungzutat.ZUTATENNR
+WHERE kunde.KUNDENNR = "2001";
+
 
 /* Abfrage: Auswahl aller Zutaten, die bisher keinem Rezept zugeordnet sind */
 
