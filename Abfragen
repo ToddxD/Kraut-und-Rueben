@@ -33,7 +33,7 @@ LEFT JOIN rezeptzutat
   ON rezeptzutat.ZUTATENNR = zutat.ZUTATENNR
 LEFT JOIN rezept
   ON rezeptzutat.RezeptID = rezept.RezeptID
-WHERE zutat.BEZEICHNUNG = "Spinat";
+WHERE zutat.BEZEICHNUNG = "Vollmilch. 3.5%";
 
 
 /* Abfrage: Berechnung der durchschnittlichen Nährwerte aller Bestellungen eines Kunden */
