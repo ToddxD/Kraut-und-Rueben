@@ -1,0 +1,19 @@
+/* Auswahl von Rezepten entsprechend vorgegebener Ernährungskategorien */
+
+/* Auswahl bzw. Ausschluss von Rezepten auf Basis von Beschränkungen */
+
+/* Abfrage: Auswahl eines Rezeptes nach Rezeptname */
+
+/* Abfrage: Auswahl aller Rezepte einer bestimmten Ernährungskategorie */
+
+/* Abfrage: Auswahl aller Rezepte, die eine gewisse Zutat enthalten */
+
+/* Abfrage: Berechnung der durchschnittlichen Nährwerte aller Bestellungen eines Kunden */
+
+/* Abfrage: Auswahl aller Zutaten, die bisher keinem Rezept zugeordnet sind */
+
+/* Abfrage: Auswahl aller Rezepte, die eine bestimmte Kalorienmenge nicht überschreiten */
+
+/* Abfrage: Auswahl aller Rezepte, die weniger als fünf Zutaten enthalten */
+
+/* Abfrage: Erstellen Sie mindestens drei weitere Abfragen */
