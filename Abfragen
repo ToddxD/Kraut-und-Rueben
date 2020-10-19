@@ -55,4 +55,12 @@ WHERE kunde.KUNDENNR = "2001";
 
 /* Abfrage: Auswahl aller Rezepte, die weniger als fünf Zutaten enthalten */
 
+SELECT RezeptName
+FROM rezept 
+WHERE rezeptID IN
+	(SELECT DISTINCT rezeptID
+		FROM rezeptzutat
+		GROUP BY rezeptID
+		HAVING COUNT(ZUTATENNR) < 5);
+
 /* Abfrage: Erstellen Sie mindestens drei weitere Abfragen */
