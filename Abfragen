@@ -24,7 +24,7 @@ WHERE allergien.AllergieName = 'Kuhmilch';
 
 
 
-SELECT DISTINCT rezept.rezeptName, allergien.AllergieName
+SELECT DISTINCT rezept.rezeptName
   FROM rezept
 LEFT JOIN rezeptallergien
   ON rezept.rezeptID = rezeptallergien.rezeptID
@@ -33,7 +33,10 @@ LEFT JOIN allergien
 WHERE rezept.RezeptID NOT IN 
 	(SELECT rezeptallergien.RezeptID 
 		FROM rezeptallergien 
-	WHERE rezeptallergien.AllergieID = 2);
+	LEFT JOIN allergien
+  		ON rezeptallergien.AllergieID = allergien.AllergieID
+	WHERE allergien.AllergieName = 'Kuhmilch');
+
 
 /* Abfrage: Auswahl eines Rezeptes nach Rezeptname */
 
