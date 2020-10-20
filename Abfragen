@@ -102,4 +102,8 @@ WHERE rezeptID IN
 
 /*SELECT Bezeichnung, Einheit, Bestand, Lieferant FROM zutat WHERE lieferant = 101 ORDER BY Bestand DESC;*/
 
+/*SELECT bestellung.BESTELLNR , bestellung.BESTELLDATUM, bestellung.RECHNUNGSBETRAG, kunde.NACHNAME, kunde.STRASSE, kunde.HAUSNR, kunde.PLZ, kunde.ORT, bestellungzutat.ZUTATENNR, bestellungzutat.MENGE FROM bestellung
+LEFT JOIN kunde ON kunde.KUNDENNR=bestellung.KUNDENNR
+LEFT JOIN bestellungzutat ON bestellungzutat.BESTELLNR=bestellung.BESTELLNR
+WHERE kunde.ORT='Barsbüttel';*/
 
