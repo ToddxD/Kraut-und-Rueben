@@ -83,16 +83,25 @@ WHERE RezeptId IS NULL;
 
 /* Abfrage: Auswahl aller Rezepte, die eine bestimmte Kalorienmenge nicht überschreiten */
 
+SELECT rezept.RezeptName
+	FROM rezept 
+WHERE rezept.rezeptID IN
+	(SELECT DISTINCT rezeptzutat.rezeptID
+		FROM rezeptzutat
+	LEFT JOIN zutat
+		ON zutat.ZUTATENNR = rezeptzutat.ZUTATENNR
+	GROUP BY rezeptzutat.rezeptID
+		HAVING SUM(zutat.KALORIEN) < 1700);
 
 
 /* Abfrage: Auswahl aller Rezepte, die weniger als fünf Zutaten enthalten */
 
-SELECT RezeptName
+SELECT rezept.RezeptName
 FROM rezept 
-WHERE rezeptID IN
-	(SELECT DISTINCT rezeptID
+WHERE rezept.rezeptID IN
+	(SELECT DISTINCT rezeptzutat.rezeptID
 		FROM rezeptzutat
-		GROUP BY rezeptID
-		HAVING COUNT(ZUTATENNR) < 5);
+		GROUP BY rezeptzutat.rezeptID
+		HAVING COUNT(rezeptzutat.ZUTATENNR) < 6);
 
 /* Abfrage: Erstellen Sie mindestens drei weitere Abfragen */
