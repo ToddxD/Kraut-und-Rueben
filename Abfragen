@@ -11,8 +11,29 @@ LEFT JOIN ernaehrungskategorie ON rezepternaehrungskategorie.ErnKatID=ernaehrung
 WHERE ernaehrungskategorie.ErnKatName = 'Vegan';
 
 
-
 /* Auswahl bzw. Ausschluss von Rezepten auf Basis von Beschränkungen */
+
+SELECT rezept.rezeptName
+  FROM rezept
+LEFT JOIN rezeptallergien
+  ON rezept.rezeptID = rezeptallergien.rezeptID
+LEFT JOIN allergien
+  ON rezeptallergien.AllergieID = allergien.AllergieID
+WHERE allergien.AllergieName = 'Kuhmilch';
+
+
+
+
+SELECT DISTINCT rezept.rezeptName, allergien.AllergieName
+  FROM rezept
+LEFT JOIN rezeptallergien
+  ON rezept.rezeptID = rezeptallergien.rezeptID
+LEFT JOIN allergien
+  ON rezeptallergien.AllergieID = allergien.AllergieID
+WHERE rezept.RezeptID NOT IN 
+	(SELECT rezeptallergien.RezeptID 
+		FROM rezeptallergien 
+	WHERE rezeptallergien.AllergieID = 2);
 
 /* Abfrage: Auswahl eines Rezeptes nach Rezeptname */
 
@@ -57,6 +78,8 @@ ON zutat.ZUTATENNR = rezeptzutat.ZUTATENNR
 WHERE RezeptId IS NULL;
 
 /* Abfrage: Auswahl aller Rezepte, die eine bestimmte Kalorienmenge nicht überschreiten */
+
+
 
 /* Abfrage: Auswahl aller Rezepte, die weniger als fünf Zutaten enthalten */
 
