@@ -95,3 +95,11 @@ WHERE rezeptID IN
 		HAVING COUNT(ZUTATENNR) < 5);
 
 /* Abfrage: Erstellen Sie mindestens drei weitere Abfragen */
+
+/* 3 Weitere abfragen */
+
+/*SELECT COUNT(RezeptID) AS AnzahlRezepte FROM rezept;*/
+
+/*SELECT Bezeichnung, Einheit, Bestand, Lieferant FROM zutat WHERE lieferant = 101 ORDER BY Bestand DESC;*/
+
+
