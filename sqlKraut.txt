@@ -1,0 +1,117 @@
+USE krautundrueben;
+
+/**CREATE TABLE Rezept (RezeptID INTEGER AUTO_INCREMENT NOT NULL, RezeptName VARCHAR(50), PRIMARY KEY(RezeptID));**/
+/**CREATE TABLE Allergien (AllergieID INTEGER AUTO_INCREMENT NOT NULL, AllergieName VARCHAR(50), PRIMARY KEY(AllergieID));**/
+/**CREATE TABLE ErnaehrungsKategorie (ErnKatID INTEGER AUTO_INCREMENT NOT NULL, ErnKatName VARCHAR(50), PRIMARY KEY (ErnKatID));**/
+/**CREATE TABLE RezeptAllergien (RezeptID INTEGER NOT NULL, AllergieID INTEGER NOT NULL, PRIMARY KEY(RezeptID, AllergieID), FOREIGN KEY(RezeptID) REFERENCES Rezept(RezeptID), FOREIGN KEY(AllergieID) REFERENCES Allergien(AllergieID));**/
+/**CREATE TABLE RezeptErnaehrungskategorie (RezeptID INTEGER NOT NULL, ErnKatID INTEGER NOT NULL, PRIMARY KEY (RezeptID, ErnKatID), FOREIGN KEY(RezeptID) REFERENCES Rezept(RezeptID), FOREIGN KEY (ErnKatID) REFERENCES ernaehrungskategorie(ErnKatID));**/
+/**CREATE TABLE RezeptZutat (RezeptID INTEGER NOT NULL, ZUTATENNR INTEGER NOT NULL, Menge INTEGER, PRIMARY KEY (RezeptID, ZUTATENNR), FOREIGN KEY(RezeptID) REFERENCES Rezept(RezeptID), FOREIGN KEY(ZUTATENNR) REFERENCES zutat(ZUTATENNR));**/
+
+/** INSERTBEFEHLE
+
+/**INSERT INTO allergien (Allergiename) VALUES ('Erdnuss');**/
+/**INSERT INTO allergien (Allergiename) VALUES ('Kuhmilch');**/
+/**INSERT INTO allergien (Allergiename) VALUES ('Baumnuesse');
+INSERT INTO allergien (Allergiename) VALUES ('Sojabohne');
+INSERT INTO allergien (Allergiename) VALUES ('Huehnerei');
+INSERT INTO allergien (Allergiename) VALUES ('Fisch und Meeresfruechte');
+INSERT INTO allergien (Allergiename) VALUES ('Weizen');
+
+INSERT INTO ernaehrungskategorie (ErnKatName) VALUES ('Vegan');
+INSERT INTO ernaehrungskategorie (ErnKatName) VALUES ('Vegetarisch');
+INSERT INTO ernaehrungskategorie (ErnKatName) VALUES ('Frutarisch');
+INSERT INTO ernaehrungskategorie (ErnKatName) VALUES ('ohne Gentechnik');
+INSERT INTO ernaehrungskategorie (ErnKatName) VALUES ('Laktosefrei');
+INSERT INTO ernaehrungskategorie (ErnKatName) VALUES ('Glutenfrei');
+INSERT INTO ernaehrungskategorie (ErnKatName) VALUES ('Low Carb');
+
+INSERT INTO zutat (BEZEICHNUNG, EINHEIT, NETTOPREIS, BESTAND, LIEFERANT, KALORIEN, KOHLENHYDRATE , PROTEIN) VALUES ('Nudelplatten', 'Stueck', 2.15, 11, 101, 359, 71.7, 12);
+UPDATE zutat SET ZUTATENNR = 6400 WHERE ZUTATENNR = 0; **/
+
+
+
+/**INSERT INTO rezept (RezeptName) VALUES ('Lachslasagne');
+
+INSERT INTO rezept (RezeptName) VALUES ('ThaiCurry');
+INSERT INTO rezept (RezeptName) VALUES ('Kartoffelsuppe');
+INSERT INTO rezept (RezeptName) VALUES ('Milchreis mit Apfelmus');
+INSERT INTO rezept (RezeptName) VALUES ('Sommerlicher Couscous-Salat');
+
+/******************************************************/
+/**	RezeptID` INT(11) NOT NULL,
+	`ZUTATENNR` INT(11) NOT NULL,
+	`Menge` **/
+	
+/*INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (1, 6400, 1);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (1, 1013, 1);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (1, 8001, 2);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (1, 3004, 1);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (1, 3003, 1);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (1, 6000, 1);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (1, 3001, 1);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (1, 7043, 2);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (1, 3005, 1);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (1, 3006, 1);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (1, 2002, 1);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (1, 1019, 1);**/
+
+
+/**TOFU WURST**/
+/**INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (3, 1006, 5);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (3, 1005, 1);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (3, 1008, 1);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (3, 1002, 1);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (3, 7043, 5);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (3, 9001, 2);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (3, 1017, 1);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (3, 1012, 1);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (3, 1018, 1);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (3, 1019, 1);**/
+
+
+/**INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (2, 9002, 3);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (2, 1014, 1);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (2, 7025, 1);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (2, 1009, 1);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (2, 1015, 2);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (2, 1016, 1);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (2, 3011, 1);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (2, 1101, 1);**/
+
+/**INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (4, 3001, 1);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (4, 1014, 1);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (4, 3003, 1);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (4, 6200, 1);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (4, 2011, 1);**/
+
+/**INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (5, 6408, 1);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (5, 7043, 2);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (5, 1003, 3);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (5, 1001, 1);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (5, 1020, 1);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (5, 1017, 1);
+INSERT INTO rezeptzutat (RezeptID, ZUTATENNR, Menge) VALUES (5, 1102, 1);**/
+
+/**`RezeptID` INT(11) NOT NULL,
+`ErnKatID` INT(11) NOT NULL,
+
+INSERT INTO rezepternaehrungskategorie(RezeptID, ErnKatID) VALUES (1, 4);
+INSERT INTO rezepternaehrungskategorie(RezeptID, ErnKatID) VALUES (2, 4);
+INSERT INTO rezepternaehrungskategorie(RezeptID, ErnKatID) VALUES (2, 5);
+INSERT INTO rezepternaehrungskategorie(RezeptID, ErnKatID) VALUES (2, 6);
+INSERT INTO rezepternaehrungskategorie(RezeptID, ErnKatID) VALUES (3, 4);
+INSERT INTO rezepternaehrungskategorie(RezeptID, ErnKatID) VALUES (3, 1);
+INSERT INTO rezepternaehrungskategorie(RezeptID, ErnKatID) VALUES (3, 2);
+INSERT INTO rezepternaehrungskategorie(RezeptID, ErnKatID) VALUES (3, 5);
+INSERT INTO rezepternaehrungskategorie(RezeptID, ErnKatID) VALUES (3, 6);
+INSERT INTO rezepternaehrungskategorie(RezeptID, ErnKatID) VALUES (4, 4);
+INSERT INTO rezepternaehrungskategorie(RezeptID, ErnKatID) VALUES (5, 1);
+INSERT INTO rezepternaehrungskategorie(RezeptID, ErnKatID) VALUES (5, 2);
+INSERT INTO rezepternaehrungskategorie(RezeptID, ErnKatID) VALUES (5, 4);
+INSERT INTO rezepternaehrungskategorie(RezeptID, ErnKatID) VALUES (5, 5);
+INSERT INTO rezepternaehrungskategorie(RezeptID, ErnKatID) VALUES (5, 7);**/
+
+INSERT INTO rezeptallergien (RezeptID, AllergieID) VALUES (1, 2);
+INSERT INTO rezeptallergien (RezeptID, AllergieID) VALUES (1, 7);
+INSERT INTO rezeptallergien (RezeptID, AllergieID) VALUES (3, 4);
+INSERT INTO rezeptallergien (RezeptID, AllergieID) VALUES (4, 2);**/
